@@ -5,7 +5,9 @@ import { BrowserRouter as Route, Link } from "react-router-dom";
 import Header from "./Header";
 import Lima from "./5.gif";
 import "./Step5.css";
+import { Redirect } from 'react-router';
 import FadeIn from 'react-fade-in';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 
 const useStyles = makeStyles((theme) => ({
 	continue: {
@@ -34,6 +36,8 @@ function Step5() {
 	const classes = useStyles();    
 	const [seconds, setSeconds] = useState(1);
 	const [isActive, setIsActive] = useState(true);	
+	const [message, setMessage] = useState(false);
+
 	useEffect(() => {
 		let interval = null;
 		if (isActive) {
@@ -47,6 +51,20 @@ function Step5() {
 		}
 		return () => clearInterval(interval);
 	  }, [isActive, seconds]);	
+	  const commands = [
+		{
+		  command: 'selanjutnya',
+		  callback: () => setMessage(true)
+		},
+	  ]	
+
+	  const { transcript } = useSpeechRecognition({ commands })
+	
+	  if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
+		return null
+	  }
+	
+	  SpeechRecognition.startListening({ language: 'id' })
 	return (
 		<div>
 			<FadeIn>
@@ -69,6 +87,7 @@ function Step5() {
 				)
 				}
 			</div>
+			{message ? <Redirect to="/step6" /> : ''}						
 			</FadeIn>
 		</div>
 	);

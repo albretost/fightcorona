@@ -6,12 +6,12 @@ import "./Result.css";
 function Result(props) {
   return (
     <CSSTransition
-      className="container result"
+      className="wrapperz result"
       component="div"
       timeout={200}
     >
       <div>
-        You prefer  <strong>{props.quizResult}</strong>!
+        Hasil assessment kamu : <h2>{props.quizResult}!</h2>
       </div>
     </CSSTransition>
   );

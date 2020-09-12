@@ -26,7 +26,6 @@ class Survei extends Component {
 	componentDidMount() {
 		const shuffledAnswerOptions = quizQuestions.map(
 			(question) => question.answers
-			// this.shuffleArray(question.answers)
 		);
 		console.log(this.state.answer);
 
@@ -277,7 +276,7 @@ class Survei extends Component {
 		if (result.length === 1) {
 			this.setState({ result: result[0] });
 		} else {
-			this.setState({ result: "Undetermined" });
+			this.setState({ result: "Anda Negatif Rentan" });
 		}
 	}
 

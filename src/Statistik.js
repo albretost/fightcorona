@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import Circular from "./Circular";
 import database from "./firebase";
 import firestore from 'firebase/firestore'
-import DirawatIcon from "./hospital.svg";
+import DirawatIcon from "./ill.svg";
+import SembuhIcon from "./happy.svg";
+import SedihIcon from "./sad.svg";
+import MeninggalIcon from "./disappointment.svg";
 import "./Statistik.css";
 
 
@@ -28,7 +31,7 @@ function Statistik() {
 						<div className="statistik__wrapper__left">
 							<div className="statistik__card">
 								<img
-									src={DirawatIcon}
+									src={SedihIcon}
 									alt="Dirawat Icon"
 									className="statistik__icon"
 								></img>
@@ -41,7 +44,7 @@ function Statistik() {
 							</div>
 							<div className="statistik__card">
 								<img
-									src={DirawatIcon}
+									src={SembuhIcon}
 									alt="Dirawat Icon"
 									className="statistik__icon"
 								></img>
@@ -67,7 +70,7 @@ function Statistik() {
 							</div>
 							<div className="statistik__card">
 								<img
-									src={DirawatIcon}
+									src={MeninggalIcon}
 									alt="Dirawat Icon"
 									className="statistik__icon"
 								></img>

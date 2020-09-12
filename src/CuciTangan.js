@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 import { BrowserRouter as Route, Link } from "react-router-dom";
 import { Redirect } from 'react-router';
 import FadeIn from "react-fade-in";
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 
 const useStyles = makeStyles((theme) => ({
 	continue: {
@@ -30,49 +31,24 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-
-const recognition = new SpeechRecognition();
-recognition.lang = "id-ID";
-
 function CuciTangan() {
 	const classes = useStyles();
 	const [message, setMessage] = useState(false);
-
-	const voiceCommands = () => {
-	  // On start
-	  recognition.onstart = () => {
-		console.log('Voice is actived');
+	const commands = [
+		{
+		  command: 'mulai',
+		  callback: () => setMessage(true)
+		},
+	  ]
+	
+	  const { transcript } = useSpeechRecognition({ commands })
+	
+	  if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
+		return null
 	  }
-  
-	  // Do something when we get a result
-	  recognition.onresult = (e) => {
-		let current = e.resultIndex;
-  
-		let transcript = e.results[current][0].transcript;
-		let mobileRepeatBug = (current === 1 && transcript === e.results[0][0].transcript);
-  
-		if(!mobileRepeatBug) {
-		  if(transcript === 'mulai' || transcript === ' mulai') {
-			setMessage(true);
-		  }
-		}
-
-		setTimeout(() => {
-            recognition.start();
-          }, 50);		
-  
-	  }
-  
-	  recognition.onspeechend = () => {
-		recognition.stop();
-		console.log('voice stopped');
-	  }
-	}
-  
-	useEffect(() => {
-	  voiceCommands();
-	});
+	
+	  SpeechRecognition.startListening({ language: 'id' })
+	
 	return (
 		<FadeIn>
 		<div className="container">

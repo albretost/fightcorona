@@ -43,7 +43,9 @@ function TentangKami() {
 					</p>
 					<span className="modal__title">SUPPORT TEAM</span>
 					<p className="modal__content">
-					Donna Aisya Toendan - DBC118046
+					<h4>UKM SAKTI</h4>
+					Donna Aisya Toendan - DBC118046 <br />
+					Robert Ardeanto - DBC118054 <br />
 					</p>
 				</div>
 			</Modal>

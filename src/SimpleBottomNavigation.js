@@ -54,11 +54,11 @@ export default function SimpleBottomNavigation() {
 					root: classes.actionItem,
 					selected: classes.selected,
 				}}
-				value="/survei"				
-				label="Survei"
+				value="/asesmen"				
+				label="Asesmen"
 				icon={<AssignmentIcon />}
 				component={Link}
-				to="/survei"				
+				to="/asesmen"				
 			/>
 			<BottomNavigationAction
 				classes={{

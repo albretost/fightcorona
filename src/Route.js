@@ -18,7 +18,7 @@ function Routez() {
 			<Switch>
 				<Route exact path="/" component={Home}></Route>
 				<Route path="/cucitangan" component={CuciTangan}></Route>
-				<Route path="/survei" component={Survei}></Route>
+				<Route path="/asesmen" component={Survei}></Route>
 				<Route path="/kontak" component={Kontak}></Route>
 				<Route path="/step1" component={Step1}></Route>
 				<Route path="/step2" component={Step2}></Route>

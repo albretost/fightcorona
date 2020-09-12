@@ -17,7 +17,7 @@ function AnswerOption(props) {
       />
       <label className="radioCustomLabel" htmlFor={props.answerType}>
         {props.answerContent}
-        <p>{props.answerType}</p>
+        {/* <p>{props.answerType}</p> */}
       </label>
     </li>
   );

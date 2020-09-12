@@ -3,10 +3,9 @@
     background: #03DAC5;    
 }
 .wrapper {
-    flex: 1;
+    height: 100%;
     padding: 40px;
     padding-top: 30px;
-    padding-bottom: 100px;
 }
 
 .wrapper h3 {

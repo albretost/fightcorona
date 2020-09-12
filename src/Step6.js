@@ -5,13 +5,14 @@ import { BrowserRouter as Route, Link } from "react-router-dom";
 import Header from "./Header";
 import Enam from "./6.gif";
 import "./Step6.css";                                                          
+import { Redirect } from 'react-router';
 import FadeIn from 'react-fade-in';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 
 const useStyles = makeStyles((theme) => ({
 	continue: {
 		display: "flex",
 		backgroundColor: "#03DAC5",
-		width: "200px",
 		borderRadius: "15px",
 		color: "white",
 		fontSize: "14px",
@@ -35,6 +36,8 @@ function Step6() {
 	const classes = useStyles();    
 	const [seconds, setSeconds] = useState(1);
 	const [isActive, setIsActive] = useState(true);	
+	const [message, setMessage] = useState(false);
+
 	useEffect(() => {
 		let interval = null;
 		if (isActive) {
@@ -48,6 +51,20 @@ function Step6() {
 		}
 		return () => clearInterval(interval);
 	  }, [isActive, seconds]);	
+	  const commands = [
+		{
+		  command: 'selesai',
+		  callback: () => setMessage(true)
+		},
+	  ]	
+
+	  const { transcript } = useSpeechRecognition({ commands })
+	
+	  if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
+		return null
+	  }
+	
+	  SpeechRecognition.startListening({ language: 'id' })	  
 	return (
 		<div>
 			<FadeIn>
@@ -67,6 +84,7 @@ function Step6() {
 				)
 				}
 			</div>
+			{message ? <Redirect to="/" /> : ''}						
 			</FadeIn>
 		</div>
 	);

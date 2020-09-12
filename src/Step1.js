@@ -5,7 +5,9 @@ import { BrowserRouter as Route, Link } from "react-router-dom";
 import Header from "./Header";
 import Satu from "./1.gif";
 import "./Step1.css";
+import { Redirect } from 'react-router';
 import FadeIn from 'react-fade-in';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 
 const useStyles = makeStyles((theme) => ({
 	continue: {
@@ -31,11 +33,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Step1() {
+	
 	const classes = useStyles();    
 	const [seconds, setSeconds] = useState(1);
-	const [isActive, setIsActive] = useState(true);		
+	const [isActive, setIsActive] = useState(true);	
+	const [message, setMessage] = useState(false);
 
-	useEffect(() => {
+	useEffect(() => {		
 		let interval = null;
 		if (isActive) {
 		  interval = setInterval(() => {
@@ -47,7 +51,23 @@ function Step1() {
 		  setIsActive(false);
 		}
 		return () => clearInterval(interval);
-	  }, [isActive, seconds]);		
+	  }, [isActive, seconds]);	
+	
+	const commands = [
+		{
+		  command: 'selanjutnya',
+		  callback: () => setMessage(true)
+		},
+	  ]	
+
+	  const { transcript } = useSpeechRecognition({ commands })
+	
+	  if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
+		return null
+	  }
+	
+	  SpeechRecognition.startListening({ language: 'id' })
+	
 	return (
 		<div>
 <FadeIn>	
@@ -71,6 +91,7 @@ function Step1() {
 				)
 				}
 			</div>
+			{message ? <Redirect to="/step2" /> : ''}						
 			</FadeIn>					
 		</div>
 	);
