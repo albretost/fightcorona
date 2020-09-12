@@ -85,7 +85,7 @@ var quizQuestions = [
                 content: "Ya"
             },
             {
-                type: "18",
+                type: "A18",
                 content: "Tidak"
             },
         ]
@@ -111,7 +111,7 @@ var quizQuestions = [
                 content: "Ya"
             },
             {
-                type: "16",
+                type: "A16",
                 content: "Tidak"
             },
         ]

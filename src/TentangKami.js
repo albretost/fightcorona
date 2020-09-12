@@ -23,7 +23,7 @@ function TentangKami() {
 			>
 				<div className="modal">
 					<div className="modal__header">
-						<span className="modal__title">Tentang Kami</span>
+						<span className="modal__title">ABOUT US</span>
 						<IconButton onClick={handleClick}>
 							<CloseIcon fontSize="small" />
 						</IconButton>
@@ -34,6 +34,16 @@ function TentangKami() {
 						COVID-19. Aplikasi ini dikembangkan oleh mahasiswa dari Universitas
 						Palangka Raya dalam rangka mengikuti lomba Gemastik 13 dengan cabang
 						lomba Rekayasa Perangkat Lunak.
+					</p>
+					<span className="modal__title">OUR TEAM</span>
+					<p className="modal__content">
+						Diana - DBC118076 <br />
+						Fajrizky Diputra - DBC118042 <br />
+						Albreto Suryanata Timbung - 193020503028 <br />
+					</p>
+					<span className="modal__title">SUPPORT TEAM</span>
+					<p className="modal__content">
+					Donna Aisya Toendan - DBC118046
 					</p>
 				</div>
 			</Modal>

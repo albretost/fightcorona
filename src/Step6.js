@@ -9,8 +9,9 @@ import FadeIn from 'react-fade-in';
 
 const useStyles = makeStyles((theme) => ({
 	continue: {
+		display: "flex",
 		backgroundColor: "#03DAC5",
-		width: "80%",
+		width: "200px",
 		borderRadius: "15px",
 		color: "white",
 		fontSize: "14px",
@@ -41,7 +42,7 @@ function Step6() {
 			setSeconds(seconds => seconds + 1);
 		  }, 1000);
 		}
-		if (seconds === 9) {
+		if (seconds === 1) {
 		  clearInterval(interval);
 		  setIsActive(false);
 		}
@@ -59,13 +60,10 @@ function Step6() {
 				{isActive ? (<div><h1>{seconds}</h1></div>) : 
 				(
 					<div>
-					<Button component={Link} to="/step6" className={classes.continue}>
-						Selanjutnya
+					<Button component={Link} to="/" className={classes.continue}>
+						Selesai
 					</Button>
-					<Button component={Link} to="/step5" className={classes.back}>
-						Kembali
-					</Button>
-				</div>					
+				</div>						
 				)
 				}
 			</div>

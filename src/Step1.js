@@ -33,7 +33,8 @@ const useStyles = makeStyles((theme) => ({
 function Step1() {
 	const classes = useStyles();    
 	const [seconds, setSeconds] = useState(1);
-	const [isActive, setIsActive] = useState(true);	
+	const [isActive, setIsActive] = useState(true);		
+
 	useEffect(() => {
 		let interval = null;
 		if (isActive) {

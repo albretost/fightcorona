@@ -4,6 +4,7 @@ import Result from "./components/Result";
 import "./Survei.css";
 import quizQuestions from "./api/quizQuestion";
 import Header from "./Header";
+import SimpleBottomNavigation from "./SimpleBottomNavigation";
 
 class Survei extends Component {
 	constructor(props) {
@@ -89,7 +90,13 @@ class Survei extends Component {
 	}
 
 	getResults() {
-		const answersCount = this.state.answersCount;
+    const answersCount = this.state.answersCount;
+    const R0 =
+    answersCount.A10 &&
+    answersCount.A11 &&
+    answersCount.A12
+        ? true
+        : false;
 		const R1 =
     answersCount.A1 && answersCount.A3 && (answersCount.A2 || answersCount.A11)
 				? true
@@ -109,7 +116,7 @@ class Survei extends Component {
 		const R5 =
 			answersCount.A10 && answersCount.A2 && answersCount.A12 ? true : false;
 		const R6 =
-    (R1 || R2 || R3 || R4 || R5) &&
+    (R0 || R1 || R2 || R3 || R4 || R5) &&
     (answersCount.A8 &&
       answersCount.A18 &&
       answersCount.A14 &&
@@ -119,7 +126,7 @@ class Survei extends Component {
 				? true
 				: false;
 		const R7 =
-    (R1 || R2 || R3 || R4 || R5) &&
+    (R0 || R1 || R2 || R3 || R4 || R5) &&
     (answersCount.A17 &&
       answersCount.A9 &&
       answersCount.A14 &&
@@ -129,17 +136,17 @@ class Survei extends Component {
 				? true
 				: false;
 		const R8 =
-    (R4 || R5) &&
-    (answersCount.A17 &&
+    (R0 || R4 || R5) &&
+    answersCount.A17 &&
       answersCount.A18 &&
       answersCount.A15 &&
       answersCount.A13 &&
       answersCount.A14 &&
-      answersCount.A16)
+      answersCount.A16
 				? true
-				: false;
+        : false;
 		const R9 =
-    (R1 || R2 || R3 || R4 || R5) &&
+    (R0 || R1 || R2 || R3 || R4 || R5) &&
     (answersCount.A8 &&
       answersCount.A18 &&
       answersCount.A5 &&
@@ -150,7 +157,7 @@ class Survei extends Component {
 				? true
 				: false;
 		const R10 =
-    (R1 || R2 || R3 || R4 || R5) &&
+    (R0 || R1 || R2 || R3 || R4 || R5) &&
     (answersCount.A17 &&
       answersCount.A9 &&
       answersCount.A5 &&
@@ -161,7 +168,7 @@ class Survei extends Component {
 				? true
 				: false;
 		const R11 =
-    (R1 || R2 || R3 || R4 || R5) &&
+    (R0 || R1 || R2 || R3 || R4 || R5) &&
     (answersCount.A17 &&
       answersCount.A18 &&
       answersCount.A6 &&
@@ -173,7 +180,7 @@ class Survei extends Component {
 				? true
 				: false;
 		const R12 =
-    (R1 || R2 || R3 || R4 || R5) &&
+    (R0 || R1 || R2 || R3 || R4 || R5) &&
     (answersCount.A8 &&
       answersCount.A9 &&
       answersCount.A15 &&
@@ -185,7 +192,7 @@ class Survei extends Component {
 				? true
 				: false;
 		const R13 =
-    (R1 || R2 || R3 || R4 || R5) &&
+    (R0 || R1 || R2 || R3 || R4 || R5) &&
     (answersCount.A8 &&
       answersCount.A9 &&
       answersCount.A15 &&
@@ -197,7 +204,7 @@ class Survei extends Component {
 				? true
 				: false;
 		const R14 =
-    (R1 || R2 || R3 || R4 || R5) &&
+    (R0 || R1 || R2 || R3 || R4 || R5) &&
     (answersCount.A8 &&
       answersCount.A9 &&
       answersCount.A6 &&
@@ -209,7 +216,7 @@ class Survei extends Component {
 				? true
 				: false;
 		const R15 =
-      (R1 || R2 || R3 || R4 || R5) &&
+      (R0 || R1 || R2 || R3 || R4 || R5) &&
       (answersCount.A17 &&
         answersCount.A9 &&
         answersCount.A5 ||
@@ -222,7 +229,7 @@ class Survei extends Component {
 				? true
 				: false;
 		const R16 =
-			(R1 || R2 || R3 || R4 || R5) &&
+			(R0 || R1 || R2 || R3 || R4 || R5) &&
 			(answersCount.A8 &&
         answersCount.A18 &&
         answersCount.A5 ||
@@ -235,7 +242,7 @@ class Survei extends Component {
 				? true
 				: false;
 		const R17 =
-			(R1 || R2 || R3 || R4 || R5) &&
+			(R0 || R1 || R2 || R3 || R4 || R5) &&
 			(answersCount.A17 &&
 			answersCount.A18 &&
 			answersCount.A17 &&
@@ -250,21 +257,12 @@ class Survei extends Component {
 				? true
 				: false;
 
-		const kondisi = R17
-			? "Asimptomatik"
-			: R15 || R16
-			? "Simptomatik"
-			: R14
-			? "Probable"
-			: R9 || R10 || R11 || R12 || R13
-			? "Suspek"
-			: R8
-			? "Negatif Aman"
-			: R6 || R7
-			? "Negatif Rentan"
-			: "Error";
-
-		console.log(kondisi);
+        const kondisiR6 = R6 && R7 ? console.log('Negatif rentan') : '';
+        const kondisiR8 = R8 ? console.log('Negatif aman') : ''; 
+        const kondisiR9 = (R9 || R10 || R11 || R12 || R13) ? console.log('Suspek') : '';
+        const kondisiR14 = R14 ? console.log('Probable') : '';
+        const kondisiR15 = (R15 || R16) ? console.log('Simptomatik') : '';
+        const kondisiR17 = R17 ? console.log('Asimptomatik') : '';
 
 		const answersCountKeys = Object.keys(answersCount);
 		const answersCountValues = answersCountKeys.map((key) => answersCount[key]);
@@ -307,6 +305,7 @@ class Survei extends Component {
 				<div className="survei__container">
 					{this.state.result ? this.renderResult() : this.renderQuiz()}
 				</div>
+				<SimpleBottomNavigation />				
 			</div>
 		);
 	}

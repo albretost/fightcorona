@@ -35,8 +35,6 @@ const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogni
 const recognition = new SpeechRecognition();
 recognition.lang = "id-ID";
 
-recognition.start();
-
 function CuciTangan() {
 	const classes = useStyles();
 	const [message, setMessage] = useState(false);
@@ -59,6 +57,10 @@ function CuciTangan() {
 			setMessage(true);
 		  }
 		}
+
+		setTimeout(() => {
+            recognition.start();
+          }, 50);		
   
 	  }
   
