@@ -1,0 +1,48 @@
+.statistik__container {
+    padding: 20px;
+}
+
+.statistik {
+    margin-bottom: 10px;
+}
+
+.statistik__card {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px 0px rgb(0, 0, 0, 0.2);
+    width: 43%;
+}
+
+.statistik__icon {
+    height: 50px;
+    margin: 5px;
+}
+
+.statistik__content {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+}
+
+.statistik__number {
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 2px;
+}
+
+.statistik__wrapper__left {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.statistik__wrapper__right {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}

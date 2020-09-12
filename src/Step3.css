@@ -1,0 +1,16 @@
+.tiga__container {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.tiga__icon {
+    width: 45vh;
+}
+
+.tiga__title {
+    text-align: center;
+    margin-bottom: 30px;
+}

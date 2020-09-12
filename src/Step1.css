@@ -1,0 +1,16 @@
+.satu__container {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.satu__icon {
+    width: 45vh;
+}
+
+.satu__title {
+    text-align: center;
+    margin-bottom: 30px;
+}

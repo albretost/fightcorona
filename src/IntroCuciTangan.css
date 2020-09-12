@@ -1,0 +1,30 @@
+.cucitangan__container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    padding-top: 0px;
+}
+.cucitangan__card {
+    background: #ffffff;
+    padding: 5px 0px 5px 0px;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.cucitangan__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.cucitangan__left > span {
+    color: #03DAC5;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+.cucitangan__icon {
+    width: 75px;
+    padding: 10px;
+}

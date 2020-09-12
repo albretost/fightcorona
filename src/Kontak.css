@@ -1,0 +1,30 @@
+.kontak__container {
+    padding: 20px;
+    padding-bottom: 60px;
+}
+.kontak__card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px 1px rgb(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+}
+
+.kontak__nama {
+    margin-bottom: 5px;
+}
+
+.kontak__icon {
+    color: #03DAC5;
+    height: 40px;
+    margin-right: 5px;
+}
+
+.kontak__telpon {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}

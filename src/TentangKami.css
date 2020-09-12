@@ -1,0 +1,34 @@
+.modal__container {
+    display: flex;
+    justify-content: center;
+}
+
+.modal {
+    background: #ffffff;
+    padding: 20px;
+    padding-top: 0px;
+    padding-bottom: 1000px;
+    padding-right: 5px;
+    height: 100%;
+    border: none;
+    max-width: 500px;
+    margin: 0 auto !important;
+}
+
+.modal__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal__title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #BB86FC;
+    margin-top: 30px;
+}
+
+.modal__content {
+    padding-right: 50px;
+    font-size: 16px;
+}

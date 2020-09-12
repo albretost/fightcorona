@@ -1,0 +1,16 @@
+.dua__container {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.dua__icon {
+    width: 45vh;
+}
+
+.dua__title {
+    text-align: center;
+    margin-bottom: 30px;
+}

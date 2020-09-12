@@ -1,0 +1,14 @@
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    color: #03DAC5;
+    margin-bottom: 20px;
+}
+
+.header__icon {
+    color: #03DAC5;
+}
